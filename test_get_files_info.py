@@ -1,6 +1,7 @@
 from functions.get_files_info import get_files_info
 
 
+# test functionality expected by bootdev
 def test():
     print("Result for current directory:")
     info = get_files_info("calculator", ".")
