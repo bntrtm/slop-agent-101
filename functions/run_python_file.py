@@ -28,9 +28,9 @@ def run_python_file(working_directory, file_path, args=None):
             lines.append("No output produced")
         else:
             if completedProcess.stdout != "":
-                lines.append(f"STDOUT: {completedProcess.stdout}")
+                lines.append(f"STDOUT:\n{completedProcess.stdout}")
             if completedProcess.stderr != "":
-                lines.append(f"STDERR: {completedProcess.stderr}")
+                lines.append(f"STDERR:\n{completedProcess.stderr}")
         return "\n".join(lines)
     except Exception as e:
         return f"Error: executing Python file: {e}"
