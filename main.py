@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
     args = parser.parse_args()
 
-    print("Hello from build-ai-agent!")
+    print("Hello from slop-agent!")
     load_dotenv()
     api_key = os.environ.get("GEMINI_API_KEY")
     if api_key is None:
