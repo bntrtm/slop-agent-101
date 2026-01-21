@@ -1,2 +1,3 @@
 MAX_CHARS = 10000
 WORKING_DIR = "./calculator"
+LOOP_ITER_MAX = 5
