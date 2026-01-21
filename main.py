@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 from prompts import system_prompt
+from call_function import available_functions
 
 
 def main():
@@ -22,7 +23,9 @@ def main():
     resp = client.models.generate_content(
         model="gemini-2.5-flash",
         contents=messages,
-        config=types.GenerateContentConfig(system_instruction=system_prompt),
+        config=types.GenerateContentConfig(
+            system_instruction=system_prompt, tools=[available_functions]
+        ),
     )
     if resp.usage_metadata is None:
         raise RuntimeError("API RESPONSE FAILED")
@@ -31,7 +34,11 @@ def main():
         print("Response tokens: " + str(resp.usage_metadata.candidates_token_count))
         print("User prompt: " + resp.text)
     else:
-        print(resp.text)
+        if resp.function_calls is not None:
+            for call in resp.function_calls:
+                print(f"Calling function: {call.name}({call.args})")
+        else:
+            print(resp.text)
 
 
 if __name__ == "__main__":
