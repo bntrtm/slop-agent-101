@@ -1,5 +1,5 @@
 # slop-agent-101
-An AI agent built with Google's Gemini agent, for the purpose of following a [Boot.Dev course](https://www.boot.dev/courses/build-ai-agent-python).
+An AI agent built with Google's Gemini API, for the purpose of following a [Boot.Dev course](https://www.boot.dev/courses/build-ai-agent-python).
 
 The agent is designed with the capability of running python scripts to find .py files within
 subdirectories, read their contents, write to them, and run them.
